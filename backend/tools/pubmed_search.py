@@ -3,6 +3,10 @@ from datetime import datetime
 
 ESEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 
+HEADERS = {
+    "User-Agent": "genomics-agent/1.0 (https://github.com/adiyounes/genomics-agent)"
+}
+
 def build_query(gene_name: str, condition_name: str, refined: bool = False) -> str:
     year = datetime.now().year
     date_range = f"{year - 3}:{year}[PDAT]"
@@ -33,14 +37,22 @@ async def search_pubmed(
         "db": "pubmed",
         "term": query,
         "retmax": max_results,
-        "retmod": "json",
+        "retmode": "json",
         "sort": "relevance",
     }
 
     try:
-        async with httpx.AsyncClient(timeout=15.0) as client:
+        async with httpx.AsyncClient(timeout=15.0, headers=HEADERS) as client:
             response = await client.get(ESEARCH_URL, params=params)
             response.raise_for_status()
+
+        if not response.text.strip():
+                    return {
+                            "query": query,
+                            "pmids": [],
+                            "total_found": 0,
+                            "error": "PubMed returned an empty response. Try again in a moment.",
+                            }
 
         data = response.json()
         result_data = data.get("esearchresult",{})
@@ -74,7 +86,7 @@ async def search_pubmed(
     except Exception as e:
         return {
             "query": query,
-            "pmids": pmids,
+            "pmids": [],
             "total_found": total_found,
             "error": f"Unexpected error: {str(e)}",
         }

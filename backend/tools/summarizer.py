@@ -14,7 +14,7 @@ def _build_summary_prompt(
 ) -> str:
     
     articles_text = ""
-    for i, articles in enumerate(articles,1):
+    for i, article in enumerate(articles,1):
         articles_text += f"""
                             --- Paper {i} ---
                             Title: {article['title']}
@@ -23,7 +23,7 @@ def _build_summary_prompt(
                             PMID: {article['pmid']}
                             Abstract: {article['abstract']}
                             """
-        return f"""
+    return f"""
                     You are a biomedical research assistant. Your job is to summarise recent
                     findings for a clinical genomics application.
 
@@ -70,11 +70,11 @@ async def summarize_abstracts(
             "error": "No articles to summarise",
         }
     
-    prompt = build_summary_prompt(gene_name, condition_name, articles)
+    prompt = _build_summary_prompt(gene_name, condition_name, articles)
 
     try:
         response = client.messages.create(
-            model= Model,
+            model= MODEL,
             max_tokens= 1000,
             messages = [{"role": "user", "content":prompt}]
         )

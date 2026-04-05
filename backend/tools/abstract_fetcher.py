@@ -3,17 +3,17 @@ from xml.etree import ElementTree as ET
 
 EFETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
-def parse_articales(xml_text: str) -> list[dict]:
+def parse_articles(xml_text: str) -> list[dict]:
     
     root = ET.fromstring(xml_text)
     articles = []
 
-    for article_node in root.findall(".//PubmedArtical"):
+    for article_node in root.findall(".//PubmedArticle"):
         #PMID
         pmid_node = article_node.find(".//PMID")
         pmid = pmid_node.text if pmid_node is not None else "unknown"
         #Title
-        title_node = article_node.find(".//ArticalTitle")
+        title_node = article_node.find(".//ArticleTitle")
         title = title_node.text if title_node is not None else "No title available"
         #removing punctuation
         title = title.strip(".").strip()
@@ -39,7 +39,7 @@ def parse_articales(xml_text: str) -> list[dict]:
                 last = node.findtext("LastName","")
                 initials = node.findtext("initials","")
                 authors.append(f"{last} {initials}".strip())
-        if len(authors_nodes)>len:
+        if len(authors_nodes) > 3:
             authors.append("et al.")
         author_string = ", ".join(authors)
         #Year
@@ -53,19 +53,23 @@ def parse_articales(xml_text: str) -> list[dict]:
           if year_node is not None and year_node.text:
               year = year_node.text
               break 
+        #Journal
+        journal_node = article_node.find(".//Journal/Title")
+        journal = journal_node.text if journal_node is not None else "Unknown journal"
+        
         #only including articles with an abstract
         if abstract:
             articles.append(
                 {
-                    "pmid": pmid,
+                "pmid": pmid,
                 "title": title,
                 "abstract": abstract,
                 "authors": author_string,
-                "journal": journal,
+                "journal":journal,
                 "year": year,
                 "url": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
                 }
-            )      
+            )
     return articles
 
 async def fetch_abstracts(pmids: list[str]) -> dict:
