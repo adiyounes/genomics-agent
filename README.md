@@ -82,7 +82,7 @@ POST /research            Run the research agent
 
 - [x] Phase 1 — Project scaffolding
 - [x] Phase 2 — PubMed search tool
-- [ ] Phase 3 — Abstract fetcher
-- [ ] Phase 4 — LLM summarizer
+- [x] Phase 3 — Abstract fetcher
+- [x] Phase 4 — LLM summarizer
 - [ ] Phase 5 — ReAct agent loop
 - [ ] Phase 6 — React frontend
