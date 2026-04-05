@@ -1,6 +1,8 @@
 import os
 import anthropic
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # reading ANTHROPIC_API_KEY from the environment
 client = anthropic.Anthropic()

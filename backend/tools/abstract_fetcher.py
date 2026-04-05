@@ -14,7 +14,7 @@ def parse_articles(xml_text: str) -> list[dict]:
         pmid = pmid_node.text if pmid_node is not None else "unknown"
         #Title
         title_node = article_node.find(".//ArticleTitle")
-        title = title_node.text if title_node is not None else "No title available"
+        title = (title_node.text or "No title")if title_node is not None else "No title available"
         #removing punctuation
         title = title.strip(".").strip()
         #abstract "some articals have miltiple abstract text, we join all the sections"
@@ -55,7 +55,7 @@ def parse_articles(xml_text: str) -> list[dict]:
               break 
         #Journal
         journal_node = article_node.find(".//Journal/Title")
-        journal = journal_node.text if journal_node is not None else "Unknown journal"
+        journal = (journal_node.text or "No Journal")if journal_node is not None else "Unknown journal"
         
         #only including articles with an abstract
         if abstract:

@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pydantic import BaseModel
@@ -16,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class ReaseachRequest(BaseModel):
+class ResearchRequest(BaseModel):
     gene_name: str
     condition_name: str
 
@@ -30,7 +30,7 @@ async def research(request: ResearchRequest):
         raise HTTPException(status_code=422, detail="gene_name and condition_name are required")
     
     result = await run_research_agent(
-        gene_name=request.gene_name.stip(),
+        gene_name=request.gene_name.strip(),
         condition_name=request.condition_name.strip(),
     )
 
