@@ -6,11 +6,11 @@ An AI-powered agent that retrieves and summarises the latest biomedical research
 
 When a user clicks "Latest Research" on a genomic variant, the agent:
 
-1. **Searches PubMed** (NCBI E-utilities API) for recent papers on the gene/condition pair
-2. **Fetches abstracts** for the top 5 results
-3. **Summarises findings** using the Anthropic Claude API
-4. **Grades relevance** — if results are off-topic, it refines the query and retries (ReAct loop)
-5. **Returns** a 3–5 bullet point summary to the user
+1. Searches PubMed (NCBI E-utilities API) for recent papers on the gene/condition pair
+2. Fetches abstracts for the top 5 results
+3. Summarises findings using the Anthropic Claude API
+4. Grades relevance f results are off-topic, it refines the query and retries (ReAct loop)
+5. Returns a 3-5 bullet point summary to the user
 
 ## Tech stack
 
@@ -20,7 +20,7 @@ When a user clicks "Latest Research" on a genomic variant, the agent:
 | AI | Anthropic Claude (claude-sonnet-4-20250514) |
 | Biomedical data | NCBI PubMed E-utilities API |
 | HTTP client | httpx (async) |
-| Frontend | React + Vite (Phase 6) |
+| Frontend | React + Vite |
 
 ## Project structure
 
@@ -41,7 +41,7 @@ genomics-agent/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/genomics-agent.git
+git clone https://github.com/adiyounes/genomics-agent.git
 cd genomics-agent
 
 # 2. Create and activate a virtual environment
@@ -77,12 +77,3 @@ POST /research            Run the research agent
   "condition_name": "breast cancer"
 }
 ```
-
-## Status
-
-- [x] Phase 1 — Project scaffolding
-- [x] Phase 2 — PubMed search tool
-- [x] Phase 3 — Abstract fetcher
-- [x] Phase 4 — LLM summarizer
-- [x] Phase 5 — ReAct agent loop
-- [x] Phase 6 — React frontend
