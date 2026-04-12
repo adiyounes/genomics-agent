@@ -1,5 +1,7 @@
 # Genomics Research Agent
 
+[![CI](https://github.com/adiyounes/genomics-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/adiyounes/genomics-agent/actions/workflows/ci.yml)
+
 An AI-powered agent that retrieves and summarises the latest biomedical research for a given gene and condition. Built as a portfolio project demonstrating ReAct-pattern agentic AI, API orchestration, and full-stack development.
 
 ## How it works
