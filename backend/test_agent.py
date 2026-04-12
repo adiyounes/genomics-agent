@@ -1,8 +1,6 @@
 """
-Test the full ReAct agent end to end.
-Run from backend/ folder:
-
-    python3 test_agent.py
+    run locally only
+    testing the agent
 """
 import asyncio
 from dotenv import load_dotenv

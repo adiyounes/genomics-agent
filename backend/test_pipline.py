@@ -1,3 +1,9 @@
+"""
+    run locally only
+    testing tools
+
+"""
+
 import asyncio
 from dotenv import load_dotenv
 
