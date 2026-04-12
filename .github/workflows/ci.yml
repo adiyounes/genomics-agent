@@ -28,4 +28,4 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           cd backend
-          python -c "from agent import run_research_agent; print("Ok")"
+          python -c "from agent import run_research_agent; print('ok')"
