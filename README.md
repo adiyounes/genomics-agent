@@ -4,6 +4,9 @@
 
 An AI-powered agent that retrieves and summarises the latest biomedical research for a given gene and condition. Built as a portfolio project demonstrating ReAct-pattern agentic AI, API orchestration, and full-stack development.
 ## Live Demo
+The live frontend and backend are temporarily disconnected due to a pending AWS domain setup required for HTTPS. The GitHub Pages frontend requires a secure HTTPS endpoint which is being configured
+To run the full application locally.
+
 Frontend: https://adiyounes.github.io/genomics-agent  
 API: http://34.242.51.112:8000/docs
 ## How it works
