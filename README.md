@@ -3,7 +3,9 @@
 [![CI](https://github.com/adiyounes/genomics-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/adiyounes/genomics-agent/actions/workflows/ci.yml)
 
 An AI-powered agent that retrieves and summarises the latest biomedical research for a given gene and condition. Built as a portfolio project demonstrating ReAct-pattern agentic AI, API orchestration, and full-stack development.
-
+## Live Demo
+Frontend: https://adiyounes.github.io/genomics-agent  
+API: http://34.242.51.112:8000/docs
 ## How it works
 
 When a user clicks "Latest Research" on a genomic variant, the agent:
@@ -24,6 +26,15 @@ When a user clicks "Latest Research" on a genomic variant, the agent:
 | HTTP client | httpx (async) |
 | Frontend | React + Vite |
 
+## What I learned building this
+- How the ReAct pattern works
+- Tool calling with the Anthropic API
+- Async Python with httpx
+- building a REST API with automatic docs and request validation
+- React, useState, controlled inputs, conditional rendering, mapping over data
+- Docker, containerising a Python application
+- AWS ECS + Fargate, deploying a containerised API to the cloud
+- GitHub Actions, Github Pages
 ## Project structure
 
 ```
@@ -79,3 +90,15 @@ POST /research            Run the research agent
   "condition_name": "breast cancer"
 }
 ```
+
+## Status
+
+- ✅ Backend
+- ✅ Frontend
+- ✅ Docker
+- ✅ AWS ECS
+- ⏳ HTTPS pending domain setup
+
+## License
+
+MIT
