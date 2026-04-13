@@ -16,7 +16,7 @@ When a user clicks "Latest Research" on a genomic variant, the agent:
 1. Searches PubMed (NCBI E-utilities API) for recent papers on the gene/condition pair
 2. Fetches abstracts for the top 5 results
 3. Summarises findings using the Anthropic Claude API
-4. Grades relevance f results are off-topic, it refines the query and retries (ReAct loop)
+4. Grades relevance f results are off topic, it refines the query and retries (ReAct loop)
 5. Returns a 3-5 bullet point summary to the user
 
 ## Tech stack
