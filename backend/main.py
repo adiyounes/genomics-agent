@@ -11,7 +11,9 @@ app = FastAPI(title="Genomics Reasearch Agent")
 #Allow the React frontend to call this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://adiyounes.github.io"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
