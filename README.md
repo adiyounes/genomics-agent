@@ -36,7 +36,7 @@ genomics-agent/
 │   │   ├── abstract_fetcher.py # Tool 2: fetch abstracts
 │   │   └── summarizer.py       # Tool 3: LLM summarizer
 │   └── requirements.txt
-└── frontend/             # React UI (Phase 6)
+└── frontend/             # React UI
 ```
 
 ## Setup
