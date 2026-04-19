@@ -13,7 +13,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://adiyounes.github.io"],
+        "https://adiyounes.github.io","http://localhost:5173",
+        "https://adiyounes.github.io",
+        "https://genomics-agent.vercel.app",
+        "https://genomics-agent-swle.vercel.app",],
     allow_methods=["*"],
     allow_headers=["*"],
 )

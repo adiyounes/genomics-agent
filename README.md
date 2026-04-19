@@ -7,8 +7,8 @@ An AI-powered agent that retrieves and summarises the latest biomedical research
 The live frontend and backend are temporarily disconnected due to a pending AWS domain setup required for HTTPS. The GitHub Pages frontend requires a secure HTTPS endpoint which is being configured
 To run the full application locally.
 
-Frontend: https://adiyounes.github.io/genomics-agent  
-API: http://34.242.51.112:8000/docs
+Frontend: https://genomics-agent-swle.vercel.app/ 
+API: https://genomics-agent.onrender.com
 ## How it works
 
 When a user clicks "Latest Research" on a genomic variant, the agent:
@@ -100,7 +100,6 @@ POST /research            Run the research agent
 - ✅ Frontend
 - ✅ Docker
 - ✅ AWS ECS
-- ⏳ HTTPS pending domain setup
 
 ## License
 
