@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios"
 import "./index.css"
 
-const API_URL = "http://34.242.51.112:8000"
+const API_URL = "https://genomics-agent.onrender.com"
 export default function App() {
   const [geneName, setGeneName] = useState("")
   const [conditionName, setConditionName] = useState("")
