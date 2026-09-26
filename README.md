@@ -8,7 +8,7 @@ The live frontend and backend are temporarily disconnected due to a pending AWS 
 To run the full application locally.
 
 Frontend: https://genomics-agent-swle.vercel.app/ 
-API: https://genomics-agent.onrender.com
+API: https://genomics-agent.onrender.com/docs
 ## How it works
 
 When a user clicks "Latest Research" on a genomic variant, the agent:
