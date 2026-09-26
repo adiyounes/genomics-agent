@@ -7,7 +7,7 @@ load_dotenv()
 # reading ANTHROPIC_API_KEY from the environment
 client = anthropic.Anthropic()
 
-MODEL = "claude-sonnet-4-20250514"
+MODEL = "claude-sonnet-4-6"
 
 def _build_summary_prompt(
         gene_name: str,
